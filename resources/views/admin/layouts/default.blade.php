@@ -16,16 +16,13 @@
 
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/bower_components/select2/dist/css/select2.min.css') }}">
-
-    
-    <link href="bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    <link href="bower_components/dropzone/dist/dropzone.css" rel="stylesheet">
-    <link href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
-    <link href="bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet">
-    <link href="bower_components/slick-carousel/slick/slick.css" rel="stylesheet">
-    <link href="css/main0dc4.css?version=4.1.0" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/bower_components/bootstrap-daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/bower_components/dropzone/dist/dropzone.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/bower_components/fullcalendar/dist/fullcalendar.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/bower_components/slick-carousel/slick/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main0dc4.css?version=4.1.0') }}">
 
     <!--page level css-->
     @yield('header_styles')
@@ -106,36 +103,35 @@
 </div>
 
 <script type="text/javascript" src="{{ asset('assets/bower_components/jquery/dist/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/moment/moment.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/chart.js/dist/Chart.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/jquery-bar-rating/dist/jquery.barrating.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/ckeditor/ckeditor.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/bootstrap-validator/dist/validator.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/ion.rangeSlider/js/ion.rangeSlider.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/dropzone/dist/dropzone.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/editable-table/mindmup-editabletable.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/fullcalendar/dist/fullcalendar.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/tether/dist/js/tether.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/slick-carousel/slick/slick.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/bootstrap/js/dist/util.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/bootstrap/js/dist/alert.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/bootstrap/js/dist/button.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/bootstrap/js/dist/carousel.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/bootstrap/js/dist/collapse.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/bootstrap/js/dist/dropdown.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/bootstrap/js/dist/modal.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/bootstrap/js/dist/tab.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/bootstrap/js/dist/tooltip.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bower_components/bootstrap/js/dist/popover.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/main0dc4.js?version=4.1.0') }}"></script>
 
 
-
-<script src="bower_components/moment/moment.js"></script>
-<script src="bower_components/chart.js/dist/Chart.min.js"></script>
-<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
-<script src="bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
-<script src="bower_components/ckeditor/ckeditor.js"></script>
-<script src="bower_components/bootstrap-validator/dist/validator.min.js"></script>
-<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-<script src="bower_components/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
-<script src="bower_components/dropzone/dist/dropzone.js"></script>
-<script src="bower_components/editable-table/mindmup-editabletable.js"></script>
-<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-<script src="bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
-<script src="bower_components/tether/dist/js/tether.min.js"></script>
-<script src="bower_components/slick-carousel/slick/slick.min.js"></script>
-<script src="bower_components/bootstrap/js/dist/util.js"></script>
-<script src="bower_components/bootstrap/js/dist/alert.js"></script>
-<script src="bower_components/bootstrap/js/dist/button.js"></script>
-<script src="bower_components/bootstrap/js/dist/carousel.js"></script>
-<script src="bower_components/bootstrap/js/dist/collapse.js"></script>
-<script src="bower_components/bootstrap/js/dist/dropdown.js"></script>
-<script src="bower_components/bootstrap/js/dist/modal.js"></script>
-<script src="bower_components/bootstrap/js/dist/tab.js"></script>
-<script src="bower_components/bootstrap/js/dist/tooltip.js"></script>
-<script src="bower_components/bootstrap/js/dist/popover.js"></script>
-<script src="js/main0dc4.js?version=4.1.0"></script>
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

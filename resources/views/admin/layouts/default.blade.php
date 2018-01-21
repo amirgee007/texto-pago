@@ -37,14 +37,17 @@
                 <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="close-label">Skip Intro</span><span class="os-icon os-icon-close"></span></button>
                 <div class="onboarding-slider-w">
                     <div class="onboarding-slide">
-                        <div class="onboarding-media"><img alt="" src="img/bigicon2.png" width="200px"></div>
+                        <div class="onboarding-media">
+
+                            <img alt="" src="{{ asset('assets/img/bigicon2.png') }}" width="200px">
+                        </div>
                         <div class="onboarding-content with-gradient">
                             <h4 class="onboarding-title">Example of onboarding screen!</h4>
                             <div class="onboarding-text">This is an example of a multistep onboarding screen, you can use it to introduce your customers to your app, or collect additional information from them before they start using your app.</div>
                         </div>
                     </div>
                     <div class="onboarding-slide">
-                        <div class="onboarding-media"><img alt="" src="img/bigicon5.png" width="200px"></div>
+                        <div class="onboarding-media"><img alt="" src="{{ asset('assets/img/bigicon5.png') }}" width="200px"></div>
                         <div class="onboarding-content with-gradient">
                             <h4 class="onboarding-title">Example Request Information</h4>
                             <div class="onboarding-text">In this example you can see a form where you can request some additional information from the customer when they land on the app page.</div>
@@ -68,7 +71,7 @@
                         </div>
                     </div>
                     <div class="onboarding-slide">
-                        <div class="onboarding-media"><img alt="" src="img/bigicon6.png" width="200px"></div>
+                        <div class="onboarding-media"><img alt="" src="{{ asset('assets/img/bigicon6.png') }}" width="200px"></div>
                         <div class="onboarding-content with-gradient">
                             <h4 class="onboarding-title">Showcase App Features</h4>
                             <div class="onboarding-text">In this example you can showcase some of the features of your application, it is very handy to make new users aware of your hidden features. You can use boostrap columns to split them up.</div>

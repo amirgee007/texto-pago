@@ -239,14 +239,14 @@
                             <div class="logged-user-role">Administrator</div>
                         </div>
                     </div>
-                    <div class="bg-icon"><i class="os-icon os-icon-wallet-loaded"></i></div>
-                    <ul>
-                        <li><a href="apps_email.html"><i class="os-icon os-icon-mail-01"></i><span>Incoming Mail</span></a></li>
-                        <li><a href="users_profile_big.html"><i class="os-icon os-icon-user-male-circle2"></i><span>Profile Details</span></a></li>
-                        <li><a href="users_profile_small.html"><i class="os-icon os-icon-coins-4"></i><span>Billing Details</span></a></li>
-                        <li><a href="#"><i class="os-icon os-icon-others-43"></i><span>Notifications</span></a></li>
-                        <li><a href="#"><i class="os-icon os-icon-signs-11"></i><span>Logout</span></a></li>
-                    </ul>
+                    {{--<div class="bg-icon"><i class="os-icon os-icon-wallet-loaded"></i></div>--}}
+                    {{--<ul>--}}
+                        {{--<li><a href="apps_email.html"><i class="os-icon os-icon-mail-01"></i><span>Incoming Mail</span></a></li>--}}
+                        {{--<li><a href="users_profile_big.html"><i class="os-icon os-icon-user-male-circle2"></i><span>Profile Details</span></a></li>--}}
+                        {{--<li><a href="users_profile_small.html"><i class="os-icon os-icon-coins-4"></i><span>Billing Details</span></a></li>--}}
+                        {{--<li><a href="#"><i class="os-icon os-icon-others-43"></i><span>Notifications</span></a></li>--}}
+                        {{--<li><a href="#"><i class="os-icon os-icon-signs-11"></i><span>Logout</span></a></li>--}}
+                    {{--</ul>--}}
                 </div>
             </div>
         </div>
@@ -427,11 +427,6 @@
                 </ul>
             </li>
         </ul>
-        <div class="side-menu-magic">
-            <h4>Light Admin</h4>
-            <p>Clean Bootstrap 4 Template</p>
-            <div class="btn-w"><a class="btn btn-white btn-rounded" href="https://themeforest.net/item/light-admin-clean-bootstrap-dashboard-html-template/19760124?ref=Osetin" target="_blank">Purchase Now</a></div>
-        </div>
     </div>
 </div>
 <!--------------------

@@ -12,7 +12,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="favicon.png" rel="shortcut icon">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="../fast.fonts.net/cssapi/487b73f1-c2d1-43db-8526-db577e4c822b.css" rel="stylesheet" type="text/css">
+    {{--<link href="../fast.fonts.net/cssapi/487b73f1-c2d1-43db-8526-db577e4c822b.css" rel="stylesheet" type="text/css">--}}
 
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/bower_components/select2/dist/css/select2.min.css') }}">
@@ -97,6 +97,7 @@
     <div class="layout-w">
 
         @include('admin.layouts._left_menu')
+        @yield('content')
 
     </div>
     <div class="display-type"></div>
@@ -135,7 +136,7 @@
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','../www.google-analytics.com/analytics.js','ga');
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
     ga('create', 'UA-42863888-9', 'auto');
     ga('send', 'pageview');

@@ -1,44 +1,46 @@
-<!DOCTYPE html>
-<html>
+@extends('admin/layouts/default')
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Page Not Found | Ethel Dashboard</title>
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- global level js-->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- end of globallevel js-->
-    <!-- page level styles-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/pages/404.css') }}"/>
-    <!-- end of page level styles-->
-</head>
+@section('pageTitle', 'DashBoard')
 
-<body style="padding-top: 15%">
+@section('header_styles')
 
-    <div id="animate" class="row">
-        <div class="number">4</div>
-        <div class="icon"> <i class="livicon" data-name="pacman" data-size="105" data-c="#f6c500" data-hc="#f1b21d" data-eventtype="click" data-iteration="15"></i>
+    {{--<link rel="stylesheet" href="{{ asset('assets/css/pages/only_dashboard.css') }}"/>--}}
+    {{--<meta name="_token" content="{{ csrf_token() }}">--}}
+@stop
+
+{{-- Page content --}}
+@section('content')
+    <div class="content-w">
+        <!--------------------
+           START - Breadcrumbs
+           -------------------->
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Products</a></li>
+            <li class="breadcrumb-item"><span>Laptop with retina screen</span></li>
+        </ul>
+        <!--------------------
+           END - Breadcrumbs
+           -------------------->
+        <div class="content-i">
+            <div class="content-box">
+                <div class="big-error-w">
+                    <h1>404</h1>
+                    <h5>Page not Found</h5>
+                    <h4>Oops, Something went missing...</h4>
+                    <form>
+                        <div class="input-group">
+                            <input class="form-control" placeholder="Enter your search query here" type="text">
+                            <div class="input-group-btn"><button class="btn btn-primary">Search</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="number">4</div>
     </div>
-    <div class="hgroup">
-        <h1>Page Not Found</h1>
-        <h2>It seems that page you are looking is not available!</h2>
-        <a href="{{ route('admin.dashboard') }}">
-            <button type="button" class="btn btn-responsive button-alignment" style="font-size: large">Go to Home</button>
-        </a>
-    </div>
-    <!-- global js -->
-    <script src="{{ asset('assets/js/jquery-1.11.1.min.js') }}" type="text/javascript"></script>
-    <!-- Bootstrap -->
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
-    <!--livicons-->
-    <script src="{{ asset('assets/js/raphael-min.js') }}"></script>
-    <script src="{{ asset('assets/js/livicons-1.4.min.js') }}"></script>
-    <script src="{{ asset('assets/js/holder.js') }}"></script>
-    <!-- end of global js -->
-    <!-- begining of page level js-->
-    <script src="{{ asset('assets/js/404.js') }}"></script>
-    <!-- end of page level js-->
-</body>
-</html>
+@stop
+
+{{-- page level scripts --}}
+@section('footer_scripts')
+    {{--<script type="text/javascript" src="{{ asset('assets/vendors/moment/js/moment.min.js') }}"></script>--}}
+@stop

@@ -13,8 +13,28 @@
 
 Route::get('/', function () {
     session()->flash('app_message', 'Welcome to the Texto Pago.');
-    return view('admin.dashboard');
+    return view('admin.auth.login');
 });
+
+
+Route::get('/test', array(
+    'as' => 'test',
+    'uses' => 'Admin\TestController@index'));
+
+
+
+Route::get('/', array(
+    'as' => 'signin',
+    'uses' => 'Admin\AdminController@showLoginForm'));
+
+Route::get('/login', array(
+    'as' => 'admin.signin',
+    'uses' => 'Admin\AdminController@showLoginForm'));
+
+Route::get('logout', array(
+    'as' => 'logout',
+    'uses' => 'Admin\AdminController@logout'));
+
 
 
 
@@ -22,3 +42,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+//////// Main Logged In User routes /////////
+Route::group(['namespace' =>'Admin' ,'middleware' => ['auth']] , function(){
+
+    # Dashboard Management
+    Route::get('/dashboard', array(
+        'as' => 'index.dashboard',
+        'uses' => 'AdminController@showHome'));
+
+
+
+});
+
+

@@ -17,7 +17,8 @@
     <div class="auth-box-w">
         <div class="logo-w">
             <a href="index.html">
-                <img alt="" src="img/logo-big.png"></a>
+                <img alt="" src="img/logo-big.png">
+            </a>
         </div>
         <h4 class="auth-header">Login Form</h4>
         <form action="#">

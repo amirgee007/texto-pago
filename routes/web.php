@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+    session()->flash('app_message', 'Welcome to the Texto Pago.');
     return view('admin.dashboard');
 });
 

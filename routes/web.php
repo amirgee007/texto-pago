@@ -40,7 +40,7 @@ Route::group(['namespace' =>'Admin' ,'middleware' => ['auth']] , function(){
         'as' => 'index.dashboard',
         'uses' => 'AdminController@showHome'));
 
-    
+
 
 });
 

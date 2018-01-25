@@ -52,7 +52,7 @@
             </div>
             <div class="buttons-w">
                 <button type="submit" class="btn btn-primary">Log me in</button>
-                <button type="button" class="btn btn-danger" style="float: right">Sign Up</button>
+                <a href="{{route('register')}}" class="btn btn-danger" style="color: white; float: right">Sign Up</a>
             </div>
         </form>
     </div>

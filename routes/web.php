@@ -11,16 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    session()->flash('app_message', 'Welcome to the Texto Pago.');
-    return view('admin.auth.login');
-});
-
-
 Route::get('/test', array(
     'as' => 'test',
     'uses' => 'Admin\TestController@index'));
-
 
 
 Route::get('/', array(
@@ -36,13 +29,7 @@ Route::get('logout', array(
     'uses' => 'Admin\AdminController@logout'));
 
 
-
-
-
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 
 
 //////// Main Logged In User routes /////////
@@ -53,7 +40,7 @@ Route::group(['namespace' =>'Admin' ,'middleware' => ['auth']] , function(){
         'as' => 'index.dashboard',
         'uses' => 'AdminController@showHome'));
 
-
+    
 
 });
 

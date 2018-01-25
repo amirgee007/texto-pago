@@ -20,16 +20,35 @@
                 <img alt="" src="assets/img/logo-big.png"></a>
         </div>
         <h4 class="auth-header">Login Form</h4>
-        <form action="#">
-            <div class="form-group">
+        <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+            {{ csrf_field() }}
+            {{--@include('admin.notifications')--}}
+
+            @if (session('message'))
+                <div class="alert alert-danger alert-dismissable margin5">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>Error:</strong>  {{ session('message') }}
+                </div>
+            @endif
+            <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                 <label for="">Phone</label>
-                <input class="form-control" name="Phone" placeholder="Enter your phone" type="text" >
+                <input class="form-control" name="phone" autofocus placeholder="Enter your phone" type="number" value="{{ old('phone') }}">
                 <div class="pre-icon os-icon os-icon-user-male-circle"></div>
+                @if ($errors->has('phone'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('phone') }}</strong>
+                    </span>
+                @endif
             </div>
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('pin') ? ' has-error' : '' }}">
                 <label for="">PIN</label>
-                <input class="form-control" name="pin" placeholder="Enter your PIN" type="text">
+                <input class="form-control" name="pin" maxlength="4" minlength="4" placeholder="Enter your PIN" type="password" value="{{ old('pin') }}">
                 <div class="pre-icon os-icon os-icon-fingerprint"></div>
+                @if ($errors->has('pin'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('pin') }}</strong>
+                    </span>
+                @endif
             </div>
             <div class="buttons-w">
                 <button type="submit" class="btn btn-primary">Log me in</button>

@@ -41,7 +41,7 @@
 {{--Name, Last Name, ID , cell phone #,User , Commercial Name,Company Name, Tax ID--}}
                                     <div class="step-contents">
                                         <div class="step-content active" id="stepContent1">
-                                            
+
 
                                             <div class="form-group">
                                                 <label for="">Name</label>

@@ -17,7 +17,7 @@
     <div class="auth-box-w">
         <div class="logo-w">
             <a href="#">
-                <img alt="" src="assets/img/logo-big.png"></a>
+                <img alt="" src="assets/img/logo-new.jpg" height="46" width="80%"></a>
         </div>
         <h4 class="auth-header">Login Form</h4>
         <form class="form-horizontal" method="POST" action="{{ route('login') }}">

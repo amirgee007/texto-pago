@@ -52,7 +52,8 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-        try {
+//        try {
+
             $this->validator($request->all())->validate();
             $user = User::create($request->except('pin_confirmation' ,'_token'));
             $this->guard()->login($user);
@@ -60,11 +61,11 @@ class RegisterController extends Controller
         return $this->registered($request, $user)
             ?: redirect($this->redirectPath());
 
-        }catch (\Exception $ex) {
-//            return redirect()->back()->with('message', 'Some thing went wrong!')->withInput();
-            return redirect()->back()->with('message', 'Pin Not matched or phone already exist!');
-
-        }
+//        }catch (\Exception $ex) {
+////            return redirect()->back()->with('message', 'Some thing went wrong!')->withInput();
+//            return redirect()->back()->with('message', 'Pin Not matched or phone already exist!');
+//
+//        }
 
 
 

@@ -17,13 +17,14 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->bigInteger('phone')->unique();
-            $table->enum('type' ,['commercial' ,'personal']);
             $table->integer('user_id');
+            $table->bigInteger('phone')->unique();
             $table->string('user_name');
-            $table->string('commercial_name');
-            $table->string('company_name');
-            $table->string('tax_id');
+            $table->enum('type' ,['commercial' ,'personal']);
+
+            $table->string('commercial_name')->nullable();
+            $table->string('company_name')->nullable();
+            $table->string('tax_id')->nullable();
             $table->string('pin');
             $table->rememberToken();
             $table->timestamps();

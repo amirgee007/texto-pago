@@ -5,8 +5,8 @@
 
     <div class="mm-logo-buttons-w">
         <a class="mm-logo" href="#">
-            <img alt="" src="{{ asset('assets/img/logo.png') }}">
-            <span>Clean Admin</span></a>
+            <img alt="" src="assets/img/logo-new.jpg">
+        </a>
         <div class="mm-buttons">
             <div class="mobile-menu-trigger">
                 <div class="os-icon os-icon-hamburger-menu-1"></div>
@@ -21,129 +21,81 @@
                 <img alt="" src="{{ asset('assets/img/avatar1.jpg') }}">
             </div>
             <div class="logged-user-info-w">
-                <div class="logged-user-name">Maria Gomez</div>
-                <div class="logged-user-role">Administrator</div>
+                <div class="logged-user-name">Hello {{ Auth::user()->first_name }}</div>
+                <div class="logged-user-role">{{ Auth::user()->user_name }}</div>
             </div>
         </div>
+
         <!--------------------
            START - Mobile Menu List
            -------------------->
         <ul class="main-menu">
             <li class="has-sub-menu">
-                <a href="index.html">
+                <a href="#">
                     <div class="icon-w">
                         <div class="os-icon os-icon-window-content"></div>
                     </div>
-                    <span>Dashboard</span>
+                    <span>Send</span>
                 </a>
-                <ul class="sub-menu">
-                    <li><a href="#">Dashboard 1</a></li>
-                </ul>
             </li>
-
 
             <li class="has-sub-menu">
                 <a href="#">
                     <div class="icon-w">
                         <div class="os-icon os-icon-hierarchy-structure-2"></div>
                     </div>
-                    <span>Menu Styles</span>
+                    <span>Withdraw</span>
                 </a>
-                <ul class="sub-menu">
-                    <li><a href="#">Side Menu Light</a></li>
-                </ul>
             </li>
-
             <li class="has-sub-menu">
                 <a href="#">
                     <div class="icon-w">
                         <div class="os-icon os-icon-delivery-box-2"></div>
                     </div>
-                    <span>Applications</span>
+                    <span>Historical</span>
                 </a>
-                <ul class="sub-menu">
-                    <li><a href="#">Email Application</a></li>
-                </ul>
-            </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-newspaper"></div>
-                    </div>
-                    <span>Pages</span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="#">Invoice</a></li>
-                </ul>
-            </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-pencil-12"></div>
-                    </div>
-                    <span>UI Kit</span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="#">Grid</a></li>
-                </ul>
-            </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-email-2-at2"></div>
-                    </div>
-                    <span>Emails</span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="#">Welcome Email</a></li>
-                </ul>
             </li>
             <li class="has-sub-menu">
                 <a href="#">
                     <div class="icon-w">
                         <div class="os-icon os-icon-user-male-circle"></div>
                     </div>
-                    <span>Users</span>
+                    <span>My account</span>
                 </a>
-                <ul class="sub-menu">
-                    <li><a href="#">Big Profile</a></li>
-                    <li><a href="#">Compact Profile</a></li>
-                </ul>
+
             </li>
+
+
+
+            <li class="has-sub-menu">
+                <a href="#">
+                    <div class="icon-w">
+                        <div class="os-icon os-icon-newspaper"></div>
+                    </div>
+                    <span>Banks</span>
+                </a>
+            </li>
+
+            <li class="has-sub-menu">
+                <a href="#">
+                    <div class="icon-w">
+                        <div class="os-icon os-icon-pencil-12"></div>
+                    </div>
+                    <span>Change Phone</span>
+                </a>
+            </li>
+
             <li class="has-sub-menu">
                 <a href="#">
                     <div class="icon-w">
                         <div class="os-icon os-icon-tasks-checked"></div>
                     </div>
-                    <span>Forms</span>
+                    <span>Help</span>
                 </a>
-                <ul class="sub-menu">
-                    <li><a href="#">Regular Forms</a></li>
-                </ul>
             </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-grid-squares"></div>
-                    </div>
-                    <span>Tables</span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="#">Regular Tables</a></li>
-                </ul>
-            </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-robot-1"></div>
-                    </div>
-                    <span>Icons</span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="#">Simple Line Icons</a></li>
-                </ul>
-            </li>
+
         </ul>
+
         <!--------------------
            END - Mobile Menu List
            -------------------->
@@ -154,11 +106,15 @@
    --------------------><!--------------------
                START - Menu side
                -------------------->
+<style>
+    .menu-side-w .logo-w img{
+        width: 80%;
+    }
+</style>
 <div class="desktop-menu menu-side-w menu-activated-on-click">
     <div class="logo-w">
-        <a class="logo" href="index.html">
-            <div class="logo-element"></div>
-            <div class="logo-label">Clean Admin</div>
+        <a class="logo" href="#">
+            <img alt="" src="assets/img/logo-new.jpg">
         </a>
     </div>
     <div class="menu-and-user">
@@ -168,17 +124,18 @@
                     <img alt="" src="{{ asset('assets/img/avatar1.jpg') }}">
                 </div>
                 <div class="logged-user-info-w">
-                    <div class="logged-user-name">Maria Gomez</div>
-                    <div class="logged-user-role">Administrator</div>
+                    <div class="logged-user-name">Hello {{ Auth::user()->first_name }}</div>
+                    <div class="logged-user-role">{{ Auth::user()->user_name }}</div>
                 </div>
                 <div class="logged-user-menu">
                     <div class="logged-user-avatar-info">
                         <div class="avatar-w">
                             <img alt="" src="{{ asset('assets/img/avatar1.jpg') }}">
+
                         </div>
                         <div class="logged-user-info-w">
-                            <div class="logged-user-name">Maria Gomez</div>
-                            <div class="logged-user-role">Administrator</div>
+                            <div class="logged-user-name">Hello {{ Auth::user()->first_name }}</div>
+                            <div class="logged-user-role">{{ Auth::user()->user_name }}</div>
                         </div>
                     </div>
                     <div class="bg-icon"><i class="os-icon os-icon-wallet-loaded"></i></div>
@@ -190,116 +147,69 @@
         </div>
         <ul class="main-menu">
             <li class="has-sub-menu">
-                <a href="index.html">
+                <a href="#">
                     <div class="icon-w">
                         <div class="os-icon os-icon-window-content"></div>
                     </div>
-                    <span>Dashboard</span>
+                    <span>Send</span>
                 </a>
-                <ul class="sub-menu">
-                    <li><a href="index.html">Dashboard 1</a></li>
-                </ul>
             </li>
+
             <li class="has-sub-menu">
                 <a href="#">
                     <div class="icon-w">
                         <div class="os-icon os-icon-hierarchy-structure-2"></div>
                     </div>
-                    <span>Menu Styles</span>
+                    <span>Withdraw</span>
                 </a>
-                <ul class="sub-menu">
-                    <li><a href="layouts_menu_side.html">Side Menu Light</a></li>
-                </ul>
             </li>
             <li class="has-sub-menu">
                 <a href="#">
                     <div class="icon-w">
                         <div class="os-icon os-icon-delivery-box-2"></div>
                     </div>
-                    <span>Applications</span>
+                    <span>Historical</span>
                 </a>
-                <ul class="sub-menu">
-                    <li><a href="apps_email.html">Email Application</a></li>
-                </ul>
-            </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-newspaper"></div>
-                    </div>
-                    <span>Pages</span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="misc_invoice.html">Invoice</a></li>
-                </ul>
-            </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-pencil-12"></div>
-                    </div>
-                    <span>UI Kit</span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="uikit_alerts.html">Alerts</a></li>
-
-                </ul>
-            </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-email-2-at2"></div>
-                    </div>
-                    <span>Emails</span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="emails_welcome.html">Welcome Email</a></li>
-                </ul>
             </li>
             <li class="has-sub-menu">
                 <a href="#">
                     <div class="icon-w">
                         <div class="os-icon os-icon-user-male-circle"></div>
                     </div>
-                    <span>Users</span>
+                    <span>My account</span>
                 </a>
-                <ul class="sub-menu">
-                    <li><a href="users_profile_big.html">Big Profile</a></li>
-                </ul>
+
             </li>
+
+
+
+            <li class="has-sub-menu">
+                <a href="#">
+                    <div class="icon-w">
+                        <div class="os-icon os-icon-newspaper"></div>
+                    </div>
+                    <span>Banks</span>
+                </a>
+            </li>
+
+            <li class="has-sub-menu">
+                <a href="#">
+                    <div class="icon-w">
+                        <div class="os-icon os-icon-pencil-12"></div>
+                    </div>
+                    <span>Change Phone</span>
+                </a>
+            </li>
+
             <li class="has-sub-menu">
                 <a href="#">
                     <div class="icon-w">
                         <div class="os-icon os-icon-tasks-checked"></div>
                     </div>
-                    <span>Forms</span>
+                    <span>Help</span>
                 </a>
-                <ul class="sub-menu">
-                    <li><a href="forms_regular.html">Regular Forms</a></li>
-                </ul>
             </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-grid-squares"></div>
-                    </div>
-                    <span>Tables</span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="tables_regular.html">Regular Tables</a></li>
-                </ul>
-            </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-robot-1"></div>
-                    </div>
-                    <span>Icons</span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="icon_fonts_simple_line_icons.html">Simple Line Icons</a></li>
-                </ul>
-            </li>
+
         </ul>
     </div>
 </div>

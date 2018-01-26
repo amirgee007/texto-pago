@@ -15,6 +15,12 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main0dc4.css?version=4.1.0') }}">
 
+    <style>
+        input[type="radio"].readonly {
+            opacity: 0.5; /* not necessary */
+            pointer-events: none;
+        }
+    </style>
 
 </head>
 <body>
@@ -36,13 +42,21 @@
                                 {{ csrf_field() }}
                                 <div class="steps-w">
                                     <div class="step-triggers">
-                                        <a class="step-trigger active" href="#stepContent1">First Step</a>
-                                        <a class="step-trigger" href="#stepContent2">Second Step</a>
+                                        <a class="step-trigger active" href="#stepContent1" id="first_step">First Step</a>
+                                        <a class="step-trigger" href="#stepContent2" id="second_step">Second Step</a>
                                     </div>
+                                    <div id="choose_account">
                                     Choose An Account
                                     <label class="radio-inline" style="padding-left: 5%; "><input type="radio" required name="type" value="personal" checked>Personal</label>
                                     <label class="radio-inline" style="float: right"><input type="radio" required name="type" value="commercial">Commercial</label>
                                     <hr>
+                                    </div>
+                                    @if (session('message'))
+                                        <div class="alert alert-danger alert-dismissable margin5">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                            <strong>Error:</strong>  {{ session('message') }}
+                                        </div>
+                                    @endif
                                     <div class="step-contents">
 
                                         <div class="step-content active" id="stepContent1">
@@ -77,7 +91,7 @@
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label for="">ID</label>
-                                                        <input required class="form-control" name="id" placeholder="Id" type="number">
+                                                        <input required class="form-control" name="user_id" placeholder="ID" type="number">
                                                     </div>
                                                 </div>
                                             </div>
@@ -85,7 +99,7 @@
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label for=""> Cell phone #</label>
-                                                        <input required class="form-control" name="cell_phone" placeholder="Cell Phone" type="number">
+                                                        <input required class="form-control" name="phone" placeholder="Cell Phone" type="number">
                                                     </div>
                                                 </div>
 
@@ -162,6 +176,16 @@
 <script>
 
     $(document).ready(function() {
+
+        $('#first_step').click(function () {
+            $("#choose_account").fadeIn('slow');
+        });
+
+        $('#second_step').click(function () {
+            $("#choose_account").fadeOut('slow');
+        });
+
+
         $('input[type=radio][name=type]').change(function() {
             if (this.value == 'commercial') {
                 $('#commercial_fields').show('slow');

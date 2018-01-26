@@ -30,6 +30,7 @@
                     <strong>Error:</strong>  {{ session('message') }}
                 </div>
             @endif
+
             <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                 <label for="">Phone</label>
                 <input class="form-control" name="phone" autofocus placeholder="Enter your phone" type="number" value="{{ old('phone') }}">

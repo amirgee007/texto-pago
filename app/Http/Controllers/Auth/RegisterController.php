@@ -52,16 +52,27 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-dd($request->all());
-
-        $this->validator($request->all())->validate();
-
-        event(new Registered($user = $this->create($request->all())));
-
-        $this->guard()->login($user);
+        try {
+            $this->validator($request->all())->validate();
+            $user = User::create($request->except('pin_confirmation' ,'_token'));
+            $this->guard()->login($user);
 
         return $this->registered($request, $user)
             ?: redirect($this->redirectPath());
+
+        }catch (\Exception $ex) {
+//            return redirect()->back()->with('message', 'Some thing went wrong!')->withInput();
+            return redirect()->back()->with('message', 'Pin Not matched or phone already exist!');
+
+        }
+
+
+
+
+
+
+
+
     }
 
 
@@ -75,10 +86,23 @@ dd($request->all());
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'type' => 'required|string|max:255',
+            'phone' => 'required|integer|max:255|unique:users',
+            'pin' => 'required|integer|min:4|confirmed',
         ]);
+
+
+//        "type" => "personal"
+//  "first_name" => "asadfsda"
+//  "last_name" => "asdfsdfa"
+//  "user_id" => "222"
+//  "phone" => "222"
+//  "user_name" => "adsf"
+//  "commercial_name" => null
+//  "company_name" => null
+//  "tax_id" => null
+//  "pin" => "1111"
+//  "pin_confirmation" => "1111"
     }
 
     /**

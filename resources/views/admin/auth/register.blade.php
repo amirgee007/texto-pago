@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Dashboard HTML Template</title>
+    <title>Register | Texto Pago</title>
     <meta charset="utf-8">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="template language" name="keywords">
@@ -32,34 +32,52 @@
                 <div class="content-box">
                     <div class="element-wrapper">
                         <div class="element-box">
-                            <form>
+                            <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                                {{ csrf_field() }}
                                 <div class="steps-w">
                                     <div class="step-triggers">
                                         <a class="step-trigger active" href="#stepContent1">First Step</a>
                                         <a class="step-trigger" href="#stepContent2">Second Step</a>
                                     </div>
-{{--Name, Last Name, ID , cell phone #,User , Commercial Name,Company Name, Tax ID--}}
+                                    Choose An Account
+                                    <label class="radio-inline" style="padding-left: 5%; "><input type="radio" required name="type" value="personal" checked>Personal</label>
+                                    <label class="radio-inline" style="float: right"><input type="radio" required name="type" value="commercial">Commercial</label>
+                                    <hr>
                                     <div class="step-contents">
+
                                         <div class="step-content active" id="stepContent1">
 
+                                            {{--<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">--}}
+                                                {{--<label for="name" class="col-md-4 control-label">Name</label>--}}
+
+                                                {{--<div class="col-md-6">--}}
+                                                    {{--<input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>--}}
+
+                                                    {{--@if ($errors->has('name'))--}}
+                                                        {{--<span class="help-block">--}}
+                                                            {{--<strong>{{ $errors->first('name') }}</strong>--}}
+                                                        {{--</span>--}}
+                                                    {{--@endif--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
 
                                             <div class="form-group">
-                                                <label for="">Name</label>
-                                                <input class="form-control" placeholder="Name" type="text">
+                                                <label for="">First Name</label>
+                                                <input required class="form-control" name="first_name" placeholder="Name" type="text">
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label for=""> Last Name</label>
-                                                        <input class="form-control" placeholder="First Name" type="text">
+                                                        <input required class="form-control" name="last_name" placeholder="Last Name" type="text">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label for="">ID</label>
-                                                        <input class="form-control" placeholder="Last Name" type="number">
+                                                        <input required class="form-control" name="id" placeholder="Id" type="number">
                                                     </div>
                                                 </div>
                                             </div>
@@ -67,20 +85,34 @@
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label for=""> Cell phone #</label>
-                                                        <input class="form-control" placeholder="First Name" type="text">
+                                                        <input required class="form-control" name="cell_phone" placeholder="Cell Phone" type="number">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label for="">User</label>
-                                                        <input class="form-control" placeholder="Last Name" type="number">
+                                                        <input required class="form-control" name="user_name" placeholder="User Name" type="text">
                                                     </div>
                                                 </div>
                                             </div>
 
+                                        <div id="commercial_fields" style="display: none">
+                                            <div class="form-group">
+                                                <label for="">Commercial Name</label>
+                                                <input class="form-control commercialInput" name="commercial_name" placeholder="Commercial Name" type="text">
+                                            </div><div class="form-group">
+                                                <label for="">Company Name</label>
+                                                <input class="form-control commercialInput" name="company_name" placeholder="Company Name" type="text">
+                                            </div><div class="form-group">
+                                                <label for="">Tax ID</label>
+                                                <input class="form-control commercialInput" name="tax_id" placeholder="Tax Id" type="number">
+                                            </div>
+                                        </div>
+
                                             <div class="form-buttons-w text-right">
                                                 <a class="btn btn-primary step-trigger-btn" href="#stepContent2"> Continue</a>
+                                                <a href="{{route('login')}}" class="btn btn-success" style="color: white; float: left">Sign In</a>
                                             </div>
                                         </div>
 
@@ -90,14 +122,14 @@
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label for=""> Choose a 4 digit PIN</label>
-                                                        <input class="form-control" placeholder="First Name" type="password">
+                                                        <input required name="pin" minlength="4" maxlength="4" class="form-control" placeholder="Pin" type="password">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label for="">Reintroduce a 4 digit PIN</label>
-                                                        <input style="" class="form-control" placeholder="Last Name" type="password">
+                                                        <input required name="pin_confirmation" minlength="4" maxlength="4" class="form-control" placeholder="Pin Confirmation" type="password">
                                                     </div>
                                                 </div>
                                             </div>
@@ -105,7 +137,6 @@
                                             <div class="form-buttons-w text-right">
                                                 <button class="btn btn-primary">Register</button>
                                                 <a href="{{route('login')}}" class="btn btn-success" style="color: white; float: right">Sign In</a>
-
                                             </div>
                                         </div>
                                     </div>
@@ -118,39 +149,6 @@
 
             </div>
         </div>
-
-
-
-
-
-
-
-
-        {{--<form action="#">--}}
-            {{--<div class="form-group">--}}
-                {{--<label for=""> Email address</label>--}}
-                {{--<input class="form-control" placeholder="Enter email" type="email">--}}
-                {{--<div class="pre-icon os-icon os-icon-email-2-at2"></div>--}}
-            {{--</div>--}}
-            {{--<div class="row">--}}
-                {{--<div class="col-sm-6">--}}
-                    {{--<div class="form-group">--}}
-                        {{--<label for=""> Password</label>--}}
-                        {{--<input class="form-control" placeholder="Password" type="password">--}}
-                        {{--<div class="pre-icon os-icon os-icon-fingerprint"></div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="col-sm-6">--}}
-                    {{--<div class="form-group">--}}
-                        {{--<label for="">Confirm Password</label>--}}
-                        {{--<input class="form-control" placeholder="Password" type="password"></div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="buttons-w">--}}
-                {{--<button class="btn btn-primary">Register Now</button>--}}
-                {{--<a href="{{route('login')}}" class="btn btn-success" style="color: white; float: right">Sign In</a>--}}
-            {{--</div>--}}
-        {{--</form>--}}
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('assets/bower_components/jquery/dist/jquery.min.js') }}"></script>
@@ -160,6 +158,25 @@
 
 <script src="{{ asset('assets/vendors/toastr/js/toastr.min.js') }}"></script>
 <script src="{{ asset('assets/vendors/toastr/js/pages/ui-toastr.js') }}"></script>
+
+<script>
+
+    $(document).ready(function() {
+        $('input[type=radio][name=type]').change(function() {
+            if (this.value == 'commercial') {
+                $('#commercial_fields').show('slow');
+                $('.commercialInput').prop('required',false);
+                $('.commercialInput').prop('disabled',false);
+            }
+            else if (this.value == 'personal') {
+                $('#commercial_fields').hide('slow');
+                $('.commercialInput').prop('required',true);
+                $('.commercialInput').prop('disabled',true);
+            }
+        });
+    });
+</script>
+
 
 </body>
 </html>

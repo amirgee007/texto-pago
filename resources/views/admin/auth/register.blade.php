@@ -28,7 +28,7 @@
     <div class="auth-box-w wider" style="max-width:700px">
         <div class="logo-w" style="padding: 5%">
             <a href="#">
-                <img alt="" src="assets/img/logo-new.jpg" height="46" width="50%">
+                <img alt="" src="assets/img/logo-new.png" height="46" width="50%">
             </a>
         </div>
         <h4 class="auth-header">Create new account</h4>
@@ -136,14 +136,14 @@
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label for=""> Choose a 4 digit PIN</label>
-                                                        <input required name="pin" minlength="4" maxlength="4" class="form-control" placeholder="Pin" type="password">
+                                                        <input required name="pin" minlength="4" maxlength="4" pattern="[0-9]*" class="form-control" placeholder="Choose a Pin i.e 1234" type="password">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label for="">Reintroduce a 4 digit PIN</label>
-                                                        <input required name="pin_confirmation" minlength="4" maxlength="4" class="form-control" placeholder="Pin Confirmation" type="password">
+                                                        <input required name="pin_confirmation" minlength="4" maxlength="4" pattern="[0-9]*" class="form-control" placeholder="Choose a same Pin i.e 1234" type="password">
                                                     </div>
                                                 </div>
                                             </div>

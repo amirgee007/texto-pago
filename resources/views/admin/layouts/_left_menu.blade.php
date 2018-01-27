@@ -5,7 +5,7 @@
 
     <div class="mm-logo-buttons-w">
         <a class="mm-logo" href="#">
-            <img alt="" src="assets/img/logo-new.jpg">
+            <img alt="" src="assets/img/logo-new.png">
         </a>
         <div class="mm-buttons">
             <div class="mobile-menu-trigger">
@@ -113,7 +113,7 @@
 <div class="desktop-menu menu-side-w menu-activated-on-click">
     <div class="logo-w">
         <a class="logo" href="#">
-            <img alt="" src="assets/img/logo-new.jpg">
+            <img alt="" src="assets/img/logo-new.png">
         </a>
     </div>
     <div class="menu-and-user">
@@ -187,7 +187,7 @@
                     <span>My account</span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="{{route('get.historical')}}">My account</a> </li>
+                    <li><a href="{{route('get.my.account')}}">My account</a> </li>
                 </ul>
 
             </li>

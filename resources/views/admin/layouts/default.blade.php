@@ -183,6 +183,8 @@
 
 
 </script>
+@yield('footer_scripts')
+
 </body>
 <!-- Mirrored from light.pinsupreme.com/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 20 Jan 2018 15:52:42 GMT -->
 </html>

@@ -65,6 +65,10 @@ Route::group(['namespace' =>'Admin' ,'middleware' => ['auth']] , function(){
         'as' => 'get.update.pin',
         'uses' => 'SettingsController@updatePin'));
 
+    Route::get('/help', array(
+        'as' => 'get.help',
+        'uses' => 'SettingsController@showHelp'));
+
 
 
 });

@@ -1,12 +1,9 @@
 @extends('admin/layouts/default')
 
-@section('pageTitle', 'DashBoard')
+@section('pageTitle', 'My Account')
 
 @section('header_styles')
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/bower_components/select2/dist/css/select2.min.css') }}">
-
-    {{--<link rel="stylesheet" href="{{ asset('assets/css/pages/only_dashboard.css') }}"/>--}}
-    {{--<meta name="_token" content="{{ csrf_token() }}">--}}
+    <link href="{{ asset('assets/dropify/dist/css/dropify.min.css') }}" rel="stylesheet" type="text/css"/>
 @stop
 
 {{-- Page content --}}
@@ -18,7 +15,7 @@
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item"><a href="#">texto-pago</a></li>
-            <li class="breadcrumb-item"><span>withdraw</span></li>
+            <li class="breadcrumb-item"><span>My Account</span></li>
         </ul>
         <!--------------------
            END - Breadcrumbs
@@ -31,7 +28,7 @@
                         <div class="element-wrapper">
                             <div class="element-actions">
                             </div>
-                            <h6 class="element-header">Withdraw</h6>
+                            <h6 class="element-header">My Account</h6>
                             <div class="element-content">
                                 <div class="row">
 
@@ -40,21 +37,42 @@
                                             <div class="element-box">
                                                 <form>
                                                     <div class="form-group row">
-                                                        <label class="col-form-label col-sm-4" for=""> Amount</label>
+                                                        <label class="col-form-label col-sm-4" for=""> Profile Photo</label>
                                                         <div class="col-sm-8">
-                                                            <input required name="amount" class="form-control" step="0.0001" placeholder="Enter Amount in BS" type="number">
+                                                            <input id="input-file-now" type="file" accept="image/x-png,image/gif,image/jpeg" @if(@$user->profile_pic) data-default-file="{{asset('uploads/users/'.@$user->profile_pic)}}" @endif name="profile_pic" class="dropify"/>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <label class="col-form-label col-sm-4" for=""> Balance</label>
+                                                        <label class="col-form-label col-sm-4" for=""> First Name</label>
                                                         <div class="col-sm-8">
-                                                            <input class="form-control" readonly type="number">
+                                                            <input required name="first_name" class="form-control" placeholder="Name" type="text">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <label class="col-form-label col-sm-4" for="">Last Name</label>
+                                                        <div class="col-sm-8">
+                                                            <input required class="form-control" name="last_name" placeholder="Last Name" type="text">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <label class="col-form-label col-sm-4" for="">ID</label>
+                                                        <div class="col-sm-8">
+                                                            <input required class="form-control" name="user_id" placeholder="ID" type="number">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <label class="col-form-label col-sm-4" for="">User</label>
+                                                        <div class="col-sm-8">
+                                                            <input required class="form-control" name="user_name" placeholder="User Name" type="text">
                                                         </div>
                                                     </div>
 
                                                     <div class="form-buttons-w">
-                                                        <button class="btn btn-primary" type="submit" > Withdraw</button>
+                                                        <button class="btn btn-primary" type="submit"> Update</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -66,17 +84,6 @@
                         </div>
                     </div>
                 </div>
-                <!--------------------
-                   START - Color Scheme Toggler
-                   -------------------->
-                {{--<div class="floated-colors-btn second-floated-btn">--}}
-                    {{--<div class="os-toggler-w">--}}
-                        {{--<div class="os-toggler-i">--}}
-                            {{--<div class="os-toggler-pill"></div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<span>Dark </span><span>Colors</span>--}}
-                {{--</div>--}}
             </div>
         </div>
     </div>
@@ -84,17 +91,11 @@
 
 {{-- page level scripts --}}
 @section('footer_scripts')
-    <script type="text/javascript" src="{{ asset('assets/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
-
+    <script type="text/javascript" src="{{ asset('assets/dropify/dist/js/dropify.min.js') }}"></script>
     <script>
-        $(document).ready(function(){
-            $("#send_for").select2({
-                'multiple': 'multiple',
-                placeholder: "Select a user Name",
-                width: '100%'
-            });
+
+        $(function () {
+            $('.dropify').dropify();
         });
     </script>
-
-    {{--<script type="text/javascript" src="{{ asset('assets/vendors/moment/js/moment.min.js') }}"></script>--}}
 @stop

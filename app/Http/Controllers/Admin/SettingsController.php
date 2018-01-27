@@ -22,5 +22,10 @@ class SettingsController extends Controller
         return view('admin.update-pin');
     }
 
+    public function showHelp()
+    {
+        return view('admin.help');
+    }
+
 
 }

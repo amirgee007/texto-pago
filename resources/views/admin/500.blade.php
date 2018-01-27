@@ -1,11 +1,7 @@
 
-
-
-
-
 @extends('admin/layouts/default')
 
-@section('pageTitle', 'DashBoard')
+@section('pageTitle', '500')
 
 @section('header_styles')
 
@@ -21,8 +17,8 @@
            -------------------->
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Products</a></li>
-            <li class="breadcrumb-item"><span>Laptop with retina screen</span></li>
+            <li class="breadcrumb-item"><a href="#">texto-pago</a></li>
+            <li class="breadcrumb-item"><span>500</span></li>
         </ul>
         <!--------------------
            END - Breadcrumbs

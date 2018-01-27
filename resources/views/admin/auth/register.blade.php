@@ -28,7 +28,7 @@
     <div class="auth-box-w wider" style="max-width:700px">
         <div class="logo-w" style="padding: 5%">
             <a href="#">
-                <img alt="" src="assets/img/logo-new.jpg" height="46" width="80%">
+                <img alt="" src="assets/img/logo-new.jpg" height="46" width="50%">
             </a>
         </div>
         <h4 class="auth-header">Create new account</h4>

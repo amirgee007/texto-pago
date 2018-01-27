@@ -111,7 +111,7 @@
 <script type="text/javascript" src="{{ asset('assets/bower_components/jquery/dist/jquery.min.js') }}"></script>
 {{--<script type="text/javascript" src="{{ asset('assets/bower_components/moment/moment.js') }}"></script>--}}
 {{--<script type="text/javascript" src="{{ asset('assets/bower_components/chart.js/dist/Chart.min.js') }}"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('assets/bower_components/select2/dist/js/select2.full.min.js') }}"></script>--}}
+<script type="text/javascript" src="{{ asset('assets/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
 {{--<script type="text/javascript" src="{{ asset('assets/bower_components/jquery-bar-rating/dist/jquery.barrating.min.js') }}"></script>--}}
 {{--<script type="text/javascript" src="{{ asset('assets/bower_components/ckeditor/ckeditor.js') }}"></script>--}}
 {{--<script type="text/javascript" src="{{ asset('assets/bower_components/bootstrap-validator/dist/validator.min.js') }}"></script>--}}

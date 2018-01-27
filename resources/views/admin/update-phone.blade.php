@@ -18,7 +18,7 @@
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item"><a href="#">texto-pago</a></li>
-            <li class="breadcrumb-item"><span>send</span></li>
+            <li class="breadcrumb-item"><span>withdraw</span></li>
         </ul>
         <!--------------------
            END - Breadcrumbs
@@ -31,7 +31,7 @@
                         <div class="element-wrapper">
                             <div class="element-actions">
                             </div>
-                            <h6 class="element-header">Send</h6>
+                            <h6 class="element-header">Withdraw</h6>
                             <div class="element-content">
                                 <div class="row">
 
@@ -46,28 +46,6 @@
                                                         </div>
                                                     </div>
 
-
-                                                    <div class="form-group row">
-                                                        <label class="col-form-label col-sm-4" for=""> To</label>
-                                                        <div class="col-sm-8">
-                                                            <select required name="send_to" class="form-control select2" id="send_for" multiple="true">
-                                                                <option >New York</option>
-                                                                <option >California</option>
-                                                                <option>California</option>
-                                                                <option>Boston</option>
-                                                                <option>Texas</option>
-                                                                <option>Colorado</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group row">
-                                                        <label class="col-form-label col-sm-4" for=""> Note</label>
-                                                        <div class="col-sm-8">
-                                                            <textarea required name="note" class="form-control" rows="3"></textarea>
-                                                        </div>
-                                                    </div>
-
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> Balance</label>
                                                         <div class="col-sm-8">
@@ -76,7 +54,7 @@
                                                     </div>
 
                                                     <div class="form-buttons-w">
-                                                        <button class="btn btn-primary" type="submit" > Send</button>
+                                                        <button class="btn btn-primary" type="submit" > Withdraw</button>
                                                     </div>
                                                 </form>
                                             </div>

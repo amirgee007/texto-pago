@@ -40,6 +40,31 @@ Route::group(['namespace' =>'Admin' ,'middleware' => ['auth']] , function(){
         'as' => 'index.dashboard',
         'uses' => 'AdminController@showHome'));
 
+    Route::get('/withdraw', array(
+        'as' => 'get.withdraw',
+        'uses' => 'BankController@showWithdraw'));
+
+    Route::get('/historical', array(
+        'as' => 'get.historical',
+        'uses' => 'BankController@showHistorical'));
+
+
+    Route::get('/my-account', array(
+        'as' => 'get.my.account',
+        'uses' => 'ProfileController@showMyAccount'));
+
+    Route::get('/banks', array(
+        'as' => 'get.banks',
+        'uses' => 'BankController@showbanks'));
+
+    Route::get('/change-phone', array(
+        'as' => 'get.update.phone',
+        'uses' => 'SettingsController@updatePhone'));
+
+    Route::get('/change-pin', array(
+        'as' => 'get.update.pin',
+        'uses' => 'SettingsController@updatePin'));
+
 
 
 });

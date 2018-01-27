@@ -645,11 +645,11 @@ $(function () {
 
   // #17. BOOTSTRAP RELATED JS ACTIVATIONS
 
-  // - Activate tooltips
-  $('[data-toggle="tooltip"]').tooltip();
+  // // - Activate tooltips
+  // $('[data-toggle="tooltip"]').tooltip();
 
   // - Activate popovers
-  $('[data-toggle="popover"]').popover();
+  // $('[data-toggle="popover"]').popover();
 
   // #18. TODO Application
 
@@ -756,7 +756,7 @@ $(function () {
 
   // #21. Onboarding Screens Modal
 
-  $('.onboarding-modal.show-on-load').modal('show');
+
   if ($('.onboarding-modal .onboarding-slider-w').length) {
     $('.onboarding-modal .onboarding-slider-w').slick({
       dots: true,

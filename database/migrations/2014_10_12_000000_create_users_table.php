@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('company_name')->nullable();
             $table->string('tax_id')->nullable();
             $table->string('pin');
+            $table->boolean('is_admin')->default(0);
             $table->rememberToken();
             $table->timestamps();
 

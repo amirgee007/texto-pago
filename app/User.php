@@ -10,8 +10,6 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    public $appends = ['avail_funds'];
-
     /**
      * The attributes that are mass assignable.
      *
@@ -29,6 +27,9 @@ class User extends Authenticatable
         'tax_id',
         'pin',
         'profile_pic',
+        'bank_name',
+        'account_number',
+        'avail_funds',
         'is_admin',
     ];
 
@@ -40,20 +41,5 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public function getAvailFundsAttribute() {
-
-        if(is_null($this->bank))
-            return 0.0;
-        else
-            return $this->bank->avail_funds;
-
-    }
-
-    public function bank() {
-        return $this->hasOne( Bank::class , 'user_id' , 'id');
-    }
-
-
 
 }

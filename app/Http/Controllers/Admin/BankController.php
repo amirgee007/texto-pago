@@ -17,18 +17,18 @@ class BankController extends Controller
 
     public function showBank()
     {
-        $bank = auth()->user()->bank;
-        return view('admin.banks' ,compact('bank'));
+        $user = auth()->user();
+        return view('admin.banks' ,compact('user'));
     }
 
     public function bankStore(Request $request)
     {
         try{
+            $user = auth()->user();
 
-            $bank = Bank::query()->firstOrNew(['user_id'=>auth()->id()]);
-            $bank->name = $request->name;
-            $bank->account_number = $request->account_number;
-            $bank->save();
+            $user->bank_name = $request->bank_name;
+            $user->account_number = $request->account_number;
+            $user->save();
 
             session()->flash('app_message', 'You bank account added successfully.');
 

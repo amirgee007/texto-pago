@@ -44,7 +44,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> Amount</label>
                                                         <div class="col-sm-8">
-                                                            <input required name="amount" class="form-control" step="0.0001" placeholder="Enter Amount in BS" type="number">
+                                                            <input required name="amount" id="amount" class="form-control" step="0.0001" placeholder="Enter Amount in BS" type="number">
                                                         </div>
                                                     </div>
 
@@ -70,12 +70,12 @@
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> Balance</label>
                                                         <div class="col-sm-8">
-                                                            <input class="form-control" name="avail_funds" value="{{$avail_funds}}" readonly type="number">
+                                                            <input class="form-control" id="balance" name="avail_funds" value="{{$avail_funds}}" readonly type="number">
                                                         </div>
                                                     </div>
 
                                                     <div class="form-buttons-w">
-                                                        <button class="btn btn-primary" type="submit" > Send</button>
+                                                        <button class="btn btn-primary" type="submit" id="send_button"> Send</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -108,12 +108,34 @@
     <script type="text/javascript" src="{{ asset('assets/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
 
     <script>
+        var balance = {!! $avail_funds !!}
         $(document).ready(function(){
             $("#send_for").select2({
                 placeholder: "Select a user Name",
                 width: '100%'
             });
 
+            $(document).on("change, keyup", "#amount", updateBalance);
+
+            function updateBalance()
+            {
+                var amount = parseFloat($("#amount").val());
+                var balc = (balance - amount);
+
+                var remaining =  balc.toFixed(2);
+
+                if(remaining<0)
+                {
+                    $('#balance').css('border-color', 'red');
+                    $("#send_button").attr("disabled", true);
+                }
+                else {
+                    $('#balance').css('border-color', '');
+                    $("#send_button").attr("disabled", false);
+                }
+
+                $("#balance").val(remaining);
+            }
 
 
         });

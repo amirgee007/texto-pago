@@ -35,16 +35,11 @@ class TransactionController extends Controller
             $data = $request->except('_token' ,'avail_funds');
             $user = auth()->user();
             $recipientUser = User::find($request->recipient_user_id);
-            $funds = $request->avail_funds - $request->amount;
-            if($funds<0){
-                session()->flash('app_warning', 'You have not much balance to send payment!');
-                return redirect()->back();
-            }
 
             $data['payee_user_id'] = $data['user_id']= $user->id;
 
-            $user->bank()->update(['avail_funds' => $funds]);
-            $recipientUser->bank()->update(['avail_funds' => ($recipientUser->bank->avail_funds+$request->amount)]);
+            $user->update(['avail_funds' => ($request->avail_funds)]);
+            $recipientUser->update(['avail_funds' => ($recipientUser->avail_funds+$request->amount)]);
 
             $transaction = BankTransaction::create($data);
 
@@ -76,7 +71,7 @@ class TransactionController extends Controller
                 return redirect()->back();
             }
 
-            $user->bank()->update(['avail_funds' => $funds]);
+            $user->update(['avail_funds' => $funds]);
             $transaction = BankTransaction::create($data);
 
             session()->flash('app_message', 'You withdraw funds successfully!.');

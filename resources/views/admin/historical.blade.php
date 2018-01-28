@@ -43,9 +43,8 @@
                                                         <tr>
                                                             <th>Id</th>
                                                             <th>Sent By Name</th>
+                                                            <th>Sent By Last Name</th>
                                                             <th>Sent By user Name</th>
-                                                            <th>Received By Name</th>
-                                                            <th>Received By user Name</th>
                                                             <th>Type</th>
                                                             <th>Amount</th>
                                                             {{--<th>Status</th>--}}
@@ -61,9 +60,8 @@
                                                         <tr>
                                                             <td>{{$loop->iteration}}</td>
                                                             <td>{{$transaction->payeeUser->first_name}}</td>
+                                                            <td>{{$transaction->payeeUser->last_name}}</td>
                                                             <td>{{$transaction->payeeUser->user_name}}</td>
-                                                            <td>{{$transaction->recipientUser->first_name}}</td>
-                                                            <td>{{$transaction->recipientUser->user_name}}</td>
                                                             <td>{{$transaction->type}}</td>
                                                             @if($transaction->type=='withdraw' || $transaction->payee_user_id==auth()->id() )
                                                                 <td style="color: red">-Bs {{$transaction->amount}}</td>

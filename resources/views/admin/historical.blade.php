@@ -42,9 +42,11 @@
                                                         <thead>
                                                         <tr>
                                                             <th>Id</th>
-                                                            <th>Name</th>
-                                                            <th>Last Name</th>
-                                                            <th>user Name</th>
+                                                            <th>Sent By Name</th>
+                                                            <th>Sent By user Name</th>
+                                                            <th>Received By Name</th>
+                                                            <th>Received By user Name</th>
+                                                            <th>Type</th>
                                                             <th>Amount</th>
                                                             {{--<th>Status</th>--}}
                                                             <th>Date</th>
@@ -54,16 +56,19 @@
                                                         <tbody>
 
                                                         @foreach($transactions as $transaction)
-
+                                                            {{--recipientUser--}}
+                                                            {{--payeeUser--}}
                                                         <tr>
                                                             <td>{{$loop->iteration}}</td>
-                                                            <td>{{$transaction->user->first_name}}</td>
-                                                            <td>{{$transaction->user->last_name}}</td>
-                                                            <td>{{$transaction->user->user_name}}</td>
-                                                            @if($transaction->type=='payment')
-                                                                <td style="color: limegreen">Bs {{$transaction->amount}}</td>
+                                                            <td>{{$transaction->payeeUser->first_name}}</td>
+                                                            <td>{{$transaction->payeeUser->user_name}}</td>
+                                                            <td>{{$transaction->recipientUser->first_name}}</td>
+                                                            <td>{{$transaction->recipientUser->user_name}}</td>
+                                                            <td>{{$transaction->type}}</td>
+                                                            @if($transaction->type=='withdraw' || $transaction->payee_user_id==auth()->id() )
+                                                                <td style="color: red">-Bs {{$transaction->amount}}</td>
                                                             @else
-                                                            <td style="color: red">-Bs {{$transaction->amount}}</td>
+                                                                <td style="color: limegreen">Bs {{$transaction->amount}}</td>
                                                             @endif
                                                             <td>{{\Carbon\Carbon::parse($transaction->created_at)->format('d F Y')}}</td>
                                                         </tr>

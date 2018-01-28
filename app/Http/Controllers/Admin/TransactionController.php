@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\BankTransaction;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -23,7 +24,7 @@ class TransactionController extends Controller
 
     public function showHistorical()
     {
-        $transactions =  BankTransaction::where('user_id' ,auth()->id())->get();
+        $transactions =  BankTransaction::where('payee_user_id' ,auth()->id())->OrWhere('recipient_user_id',auth()->id())->get();
         return view('admin.historical' ,compact('transactions'));
     }
 
@@ -33,6 +34,7 @@ class TransactionController extends Controller
         try{
             $data = $request->except('_token' ,'avail_funds');
             $user = auth()->user();
+            $recipientUser = User::find($request->recipient_user_id);
             $funds = $request->avail_funds - $request->amount;
             if($funds<0){
                 session()->flash('app_warning', 'You have not much balance to send payment!');
@@ -42,6 +44,8 @@ class TransactionController extends Controller
             $data['payee_user_id'] = $data['user_id']= $user->id;
 
             $user->bank()->update(['avail_funds' => $funds]);
+            $recipientUser->bank()->update(['avail_funds' => ($recipientUser->bank->avail_funds+$request->amount)]);
+
             $transaction = BankTransaction::create($data);
 
             session()->flash('app_message', 'You sent funds successfully!');

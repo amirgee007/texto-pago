@@ -15,4 +15,14 @@ class BankTransaction extends Model
         return $this->belongsTo( User::class , 'user_id' , 'id');
     }
 
+    public function payeeUser() {
+        return $this->belongsTo( User::class , 'payee_user_id' , 'id');
+    }
+
+    public function recipientUser() {
+        return $this->belongsTo( User::class , 'recipient_user_id' , 'id');
+    }
+
+
+
 }

@@ -42,11 +42,11 @@ Route::group(['namespace' =>'Admin' ,'middleware' => ['auth']] , function(){
 
     Route::get('/withdraw', array(
         'as' => 'get.withdraw',
-        'uses' => 'BankController@showWithdraw'));
+        'uses' => 'TransactionController@showWithdraw'));
 
     Route::get('/historical', array(
         'as' => 'get.historical',
-        'uses' => 'BankController@showHistorical'));
+        'uses' => 'TransactionController@showHistorical'));
 
 
     Route::get('/my-account', array(
@@ -71,10 +71,13 @@ Route::group(['namespace' =>'Admin' ,'middleware' => ['auth']] , function(){
 
 //////////////////////////////////////ALl POST ROUTES TO SAVE DATA/////////////////
 
-    Route::post('/send-store', array(
-        'as' => 'post.send.store',
-        'uses' => 'BankController@sendStore'));
+    Route::post('/transaction-store', array(
+        'as' => 'post.transaction.store',
+        'uses' => 'TransactionController@transactionStore'));
 
+    Route::post('/withdraw-store', array(
+        'as' => 'post.withdraw.store',
+        'uses' => 'TransactionController@withdrawStore'));
 
 
 });

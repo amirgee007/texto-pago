@@ -21,15 +21,19 @@ class CreateTransactionsTable extends Migration
             $table->string('note')->nullable();
 
             $table->enum('type' ,['payment' ,'withdraw']);
-            $table->float('percentage')->nullable();;
-            $table->float('commission')->nullable();;
-            $table->float('net_payment')->nullable();;
+            $table->float('percentage')->nullable();
+            $table->float('commission')->nullable();
+            $table->float('net_payment')->nullable();
+
+            $table->integer('user_id')->unsigned(); //relation
+
             $table->timestamps();
         });
 
         Schema::table('transactions', function (Blueprint $table) {
             $table->foreign('payee_user_id')->references('id')->on('users');
             $table->foreign('recipient_user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -43,6 +47,7 @@ class CreateTransactionsTable extends Migration
         Schema::table('transactions', function (Blueprint $table) {
             $table->dropForeign('payee_user_id');
             $table->dropForeign('recipient_user_id');
+            $table->dropForeign('user_id');
         });
 
         Schema::dropIfExists('transactions');

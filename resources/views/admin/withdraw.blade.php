@@ -38,8 +38,8 @@
                                     <div class="col-lg-8">
                                         <div class="element-wrapper">
                                             <div class="element-box">
-                                                <form action="{{ route('post.send.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
-
+                                                <form action="{{ route('post.withdraw.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                                                    {{ csrf_field() }}
                                                 <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> Amount</label>
                                                         <div class="col-sm-8">

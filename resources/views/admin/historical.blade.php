@@ -16,7 +16,7 @@
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item"><a href="#">texto-pago</a></li>
-            <li class="breadcrumb-item"><span>withdraw</span></li>
+            <li class="breadcrumb-item"><span>Historical</span></li>
         </ul>
         <!--------------------
            END - Breadcrumbs
@@ -29,7 +29,7 @@
                         <div class="element-wrapper">
                             <div class="element-actions">
                             </div>
-                            <h6 class="element-header">Withdraw</h6>
+                            <h6 class="element-header">Historical</h6>
                             <div class="element-content">
                                 <div class="row">
 
@@ -41,64 +41,33 @@
                                                     <table class="table table-lightborder">
                                                         <thead>
                                                         <tr>
-                                                            <th>Customer Name</th>
-                                                            <th>Orders</th>
-                                                            <th>Location</th>
-                                                            <th class="text-center">Status</th>
-                                                            <th class="text-right">Order Total</th>
+                                                            <th>Id</th>
+                                                            <th>Name</th>
+                                                            <th>Last Name</th>
+                                                            <th>user Name</th>
+                                                            <th>Amount</th>
+                                                            {{--<th>Status</th>--}}
+                                                            <th>Date</th>
+                                                            {{--<th class="text-right">Date</th>--}}
                                                         </tr>
                                                         </thead>
                                                         <tbody>
+
+                                                        @foreach($transactions as $transaction)
+
                                                         <tr>
-                                                            <td>John Mayers</td>
-                                                            <td>12</td>
-                                                            <td><img alt="" src="img/flags-icons/us.png" width="25px"></td>
-                                                            <td class="text-center">
-                                                                <div class="status-pill green" data-title="Complete"
-                                                                     data-toggle="tooltip"></div>
-                                                            </td>
-                                                            <td class="text-right">$354</td>
+                                                            <td>{{$loop->iteration}}</td>
+                                                            <td>{{$transaction->user->first_name}}</td>
+                                                            <td>{{$transaction->user->last_name}}</td>
+                                                            <td>{{$transaction->user->user_name}}</td>
+                                                            @if($transaction->type=='payment')
+                                                                <td style="color: limegreen">Bs {{$transaction->amount}}</td>
+                                                            @else
+                                                            <td style="color: red">-Bs {{$transaction->amount}}</td>
+                                                            @endif
+                                                            <td>{{\Carbon\Carbon::parse($transaction->created_at)->format('d F Y')}}</td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>Kelly Brans</td>
-                                                            <td>45</td>
-                                                            <td><img alt="" src="img/flags-icons/ca.png" width="25px"></td>
-                                                            <td class="text-center">
-                                                                <div class="status-pill red" data-title="Cancelled"
-                                                                     data-toggle="tooltip"></div>
-                                                            </td>
-                                                            <td class="text-right">$94</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Tim Howard</td>
-                                                            <td>112</td>
-                                                            <td><img alt="" src="img/flags-icons/uk.png" width="25px"></td>
-                                                            <td class="text-center">
-                                                                <div class="status-pill green" data-title="Complete"
-                                                                     data-toggle="tooltip"></div>
-                                                            </td>
-                                                            <td class="text-right">$156</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Joe Trulli</td>
-                                                            <td>1,256</td>
-                                                            <td><img alt="" src="img/flags-icons/es.png" width="25px"></td>
-                                                            <td class="text-center">
-                                                                <div class="status-pill yellow" data-title="Pending"
-                                                                     data-toggle="tooltip"></div>
-                                                            </td>
-                                                            <td class="text-right">$1,120</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Fred Kolton</td>
-                                                            <td>74</td>
-                                                            <td><img alt="" src="img/flags-icons/fr.png" width="25px"></td>
-                                                            <td class="text-center">
-                                                                <div class="status-pill green" data-title="Complete"
-                                                                     data-toggle="tooltip"></div>
-                                                            </td>
-                                                            <td class="text-right">$74</td>
-                                                        </tr>
+                                                        @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>

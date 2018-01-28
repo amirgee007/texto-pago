@@ -8,19 +8,10 @@ use App\Http\Controllers\Controller;
 
 class BankController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
-    }
-
-    public function showWithdraw()
-    {
-        return view('admin.withdraw');
-    }
-
-    public function showHistorical()
-    {
-        return view('admin.historical');
     }
 
     public function showbanks()
@@ -28,10 +19,5 @@ class BankController extends Controller
         return view('admin.banks');
     }
 
-    public function sendStore(Request $request){
-
-        dd($request->all());
-
-    }
 
 }

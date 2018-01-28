@@ -36,8 +36,9 @@
                                     <div class="col-lg-8">
                                         <div class="element-wrapper">
                                             <div class="element-box">
-                                                <form>
-                                                    <div class="form-group row">
+                                                <form action="{{ route('post.send.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+
+                                                <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> Pin 4 digits</label>
                                                         <div class="col-sm-8">
                                                             <input required name="pin" minlength="4" maxlength="4" pattern="[0-9]*" class="form-control" placeholder="Choose a Pin i.e 1234" type="password">

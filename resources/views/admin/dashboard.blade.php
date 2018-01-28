@@ -1,6 +1,6 @@
 @extends('admin/layouts/default')
 
-@section('pageTitle', 'DashBoard')
+@section('pageTitle', 'Send')
 
 @section('header_styles')
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/bower_components/select2/dist/css/select2.min.css') }}">
@@ -38,25 +38,22 @@
                                     <div class="col-lg-8">
                                         <div class="element-wrapper">
                                             <div class="element-box">
-                                                <form>
-                                                    <div class="form-group row">
+                                                <form action="{{ route('post.send.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                                                <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> Amount</label>
                                                         <div class="col-sm-8">
                                                             <input required name="amount" class="form-control" step="0.0001" placeholder="Enter Amount in BS" type="number">
                                                         </div>
                                                     </div>
 
-
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> To</label>
                                                         <div class="col-sm-8">
-                                                            <select required name="send_to" class="form-control select2" id="send_for" multiple="true">
-                                                                <option >New York</option>
-                                                                <option >California</option>
-                                                                <option>California</option>
-                                                                <option>Boston</option>
-                                                                <option>Texas</option>
-                                                                <option>Colorado</option>
+                                                            <select required name="send_to" class="form-control " id="send_for" size="1">
+                                                                <option value="">Select User to send</option>
+                                                                @foreach($users as $user)
+                                                                <option value="{{$user->id}}">{{$user->first_name}}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -111,7 +108,6 @@
     <script>
         $(document).ready(function(){
             $("#send_for").select2({
-                'multiple': 'multiple',
                 placeholder: "Select a user Name",
                 width: '100%'
             });

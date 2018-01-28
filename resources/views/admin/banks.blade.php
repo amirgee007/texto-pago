@@ -35,8 +35,9 @@
                                     <div class="col-lg-8">
                                         <div class="element-wrapper">
                                             <div class="element-box">
-                                                <form>
-                                                    <div class="form-group row">
+                                                <form action="{{ route('post.send.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+
+                                                <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> Bank</label>
                                                         <div class="col-sm-8">
                                                             <input required name="bank" class="form-control" placeholder="Bank" type="text">

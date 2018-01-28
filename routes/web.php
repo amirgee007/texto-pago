@@ -69,6 +69,12 @@ Route::group(['namespace' =>'Admin' ,'middleware' => ['auth']] , function(){
         'as' => 'get.help',
         'uses' => 'SettingsController@showHelp'));
 
+//////////////////////////////////////ALl POST ROUTES TO SAVE DATA/////////////////
+
+    Route::post('/send-store', array(
+        'as' => 'post.send.store',
+        'uses' => 'BankController@sendStore'));
+
 
 
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -25,6 +26,12 @@ class BankController extends Controller
     public function showbanks()
     {
         return view('admin.banks');
+    }
+
+    public function sendStore(Request $request){
+
+        dd($request->all());
+
     }
 
 }

@@ -18,10 +18,12 @@ class CreateTransactionsTable extends Migration
             $table->integer('payee_user_id')->unsigned(); //relation
             $table->integer('recipient_user_id')->unsigned(); //relation
             $table->float('amount');
+            $table->string('note')->nullable();
+
             $table->enum('type' ,['payment' ,'withdraw']);
-            $table->float('percentage');
-            $table->float('commission');
-            $table->float('net_payment');
+            $table->float('percentage')->nullable();;
+            $table->float('commission')->nullable();;
+            $table->float('net_payment')->nullable();;
             $table->timestamps();
         });
 

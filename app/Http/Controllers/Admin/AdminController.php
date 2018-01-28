@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +29,9 @@ class AdminController extends Controller
 
     public function showHome()
     {
-        return view('admin.dashboard');
+        $current_user = auth()->user();
+        $users =  User::where('id','<>',$current_user->id)->get();
+        return view('admin.dashboard' ,compact('users'));
     }
 
 }

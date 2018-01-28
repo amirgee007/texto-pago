@@ -16,7 +16,9 @@ class TransactionController extends Controller
 
     public function showWithdraw()
     {
-        return view('admin.withdraw');
+        $current_user = auth()->user();
+        $avail_funds =  $current_user->avail_funds;
+        return view('admin.withdraw' ,compact('avail_funds'));
     }
 
     public function showHistorical()
@@ -29,12 +31,20 @@ class TransactionController extends Controller
     public function transactionStore(Request $request){
 
         try{
-            $data = $request->except('_token');
-            $data['payee_user_id'] = $data['user_id']= auth()->id();
+            $data = $request->except('_token' ,'avail_funds');
+            $user = auth()->user();
+            $funds = $request->avail_funds - $request->amount;
+            if($funds<0){
+                session()->flash('app_warning', 'You have not much balance to send payment!');
+                return redirect()->back();
+            }
 
+            $data['payee_user_id'] = $data['user_id']= $user->id;
+
+            $user->bank()->update(['avail_funds' => $funds]);
             $transaction = BankTransaction::create($data);
 
-            session()->flash('app_message', 'You sent funds successfully!.');
+            session()->flash('app_message', 'You sent funds successfully!');
 
             return redirect()->back();
 
@@ -50,10 +60,19 @@ class TransactionController extends Controller
     public function withdrawStore(Request $request){
 
         try{
-            $data = $request->except('_token');
-            $data['payee_user_id'] = $data['recipient_user_id'] = $data['user_id']= auth()->id();
+
+            $data = $request->except('_token' ,'avail_funds');
+            $user = auth()->user();
+            $funds = $request->avail_funds - $request->amount;
+            $data['payee_user_id'] = $data['recipient_user_id'] = $data['user_id']= $user->id;
             $data['type'] = 'withdraw';
 
+            if($funds<0){
+                session()->flash('app_warning', 'You have not much balance to withdraw!');
+                return redirect()->back();
+            }
+
+            $user->bank()->update(['avail_funds' => $funds]);
             $transaction = BankTransaction::create($data);
 
             session()->flash('app_message', 'You withdraw funds successfully!.');

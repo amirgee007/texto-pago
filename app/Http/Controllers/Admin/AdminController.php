@@ -30,8 +30,9 @@ class AdminController extends Controller
     public function showHome()
     {
         $current_user = auth()->user();
+        $avail_funds =  $current_user->avail_funds;
         $users =  User::where('id','<>',$current_user->id)->get();
-        return view('admin.dashboard' ,compact('users'));
+        return view('admin.dashboard' ,compact('users','avail_funds'));
     }
 
 }

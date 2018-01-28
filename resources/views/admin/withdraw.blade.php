@@ -50,7 +50,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> Balance</label>
                                                         <div class="col-sm-8">
-                                                            <input class="form-control" readonly type="number">
+                                                            <input class="form-control" name="avail_funds" value="{{$avail_funds}}" readonly type="number">
                                                         </div>
                                                     </div>
 

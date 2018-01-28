@@ -120,7 +120,7 @@
         <div class="logged-user-w">
             <div class="logged-user-i">
                 <div class="avatar-w">
-                    <img alt="" src="{{ asset('assets/img/avatar1.jpg') }}">
+                    <img alt="" src="{{is_null(Auth::user()->profile_pic) ? asset('assets/img/avatar1.jpg') : asset('uploads/user_images/'.Auth::user()->profile_pic)}}">
                 </div>
                 <div class="logged-user-info-w">
                     <div class="logged-user-name">Hello {{ Auth::user()->first_name }}</div>
@@ -129,8 +129,7 @@
                 <div class="logged-user-menu">
                     <div class="logged-user-avatar-info">
                         <div class="avatar-w">
-                            <img alt="" src="{{ asset('assets/img/avatar1.jpg') }}">
-
+                            <img alt="" src="{{is_null(Auth::user()->profile_pic) ? asset('assets/img/avatar1.jpg') : asset('uploads/user_images/'.Auth::user()->profile_pic)}}">
                         </div>
                         <div class="logged-user-info-w">
                             <div class="logged-user-name">Hello {{ Auth::user()->first_name }}</div>

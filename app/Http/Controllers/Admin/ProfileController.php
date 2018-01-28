@@ -28,6 +28,7 @@ class ProfileController extends Controller
             $data = $request->except('_token' ,'profile_pic');
             $user = User::find($request->id);
 
+            //todo: delete photo if its already exisit from db as well as folder
             if ($file = $request->file('profile_pic')) {
 
                 $fileName = $file->getClientOriginalName();

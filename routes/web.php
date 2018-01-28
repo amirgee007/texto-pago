@@ -83,9 +83,9 @@ Route::group(['namespace' =>'Admin' ,'middleware' => ['auth']] , function(){
         'as' => 'post.my-account.store',
         'uses' => 'ProfileController@updateMyAccount'));
 
-    Route::post('/bank-store', array(
+    Route::post('/bank/store', array(
         'as' => 'post.bank.store',
-        'uses' => 'BankController@withdrabankStore'));
+        'uses' => 'BankController@bankStore'));
 
     Route::post('/update-phone/store', array(
         'as' => 'post.phone.store',

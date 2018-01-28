@@ -37,10 +37,11 @@
                                             <div class="element-box">
                                                 <form action="{{ route('post.bank.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
                                                     {{ csrf_field() }}
-                                                <div class="form-group row">
+
+                                                    <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> Bank</label>
                                                         <div class="col-sm-8">
-                                                            <input required name="bank" class="form-control" placeholder="Bank" type="text">
+                                                            <input required name="name" class="form-control" placeholder="Bank" type="text">
                                                         </div>
                                                     </div>
 
@@ -51,13 +52,41 @@
                                                         </div>
                                                     </div>
 
-
                                                     <div class="form-buttons-w">
-                                                        <button class="btn btn-primary" type="submit" > Withdraw</button>
+                                                        <button class="btn btn-primary" type="submit" > Save</button>
                                                     </div>
                                                 </form>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-lightborder">
+                                            <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Bank Id</th>
+                                                <th>Name</th>
+                                                <th>Account Number</th>
+                                                <th>Avail Funds</th>
+                                                <th>Date</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            @foreach($banks as $bank)
+
+                                                <tr>
+                                                    <td>{{$loop->iteration}}</td>
+                                                    <td>{{$bank->bank_id}}</td>
+                                                    <td>{{$bank->name}}</td>
+                                                    <td>{{$bank->account_number}}</td>
+                                                    <td>{{$bank->avail_funds}}</td>
+                                                    <td>{{\Carbon\Carbon::parse($bank->created_at)->format('d F Y')}}</td>
+
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
                                     </div>
 
                                 </div>

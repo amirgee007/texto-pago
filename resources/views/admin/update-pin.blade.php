@@ -38,17 +38,18 @@
                                             <div class="element-box">
                                                 <form action="{{ route('post.pin.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
                                                     {{ csrf_field() }}
-                                                <div class="form-group row">
+                                                    {{--<input value="{{$user->id}}" name="id"  type="hidden">--}}
+                                                    <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> Pin 4 digits</label>
                                                         <div class="col-sm-8">
-                                                            <input required name="pin" minlength="4" maxlength="4" pattern="[0-9]*" class="form-control" placeholder="Choose a Pin i.e 1234" type="password">
+                                                            <input required name="pin" value="{{$user->pin}}" minlength="4" maxlength="4" pattern="[0-9]*" class="form-control" placeholder="Choose a Pin i.e 1234" type="password">
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for="">Pin Reintroduce</label>
                                                         <div class="col-sm-8">
-                                                            <input required name="pin_confirmation" minlength="4" pattern="[0-9]*" maxlength="4" class="form-control" placeholder="Choose a same Pin i.e 1234" type="password">
+                                                            <input required name="pin_confirmation" value="{{$user->pin}}" minlength="4" pattern="[0-9]*" maxlength="4" class="form-control" placeholder="Choose a same Pin i.e 1234" type="password">
                                                         </div>
                                                     </div>
 

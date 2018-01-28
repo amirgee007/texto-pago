@@ -17,7 +17,7 @@ class CreateBanksTable extends Migration
             $table->increments('bank_id');
             $table->string('name');
             $table->bigInteger('account_number');
-            $table->float('avail_funds');
+            $table->float('avail_funds')->nullable();
             $table->integer('user_id')->unsigned(); //relation
             $table->timestamps();
         });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,20 +16,38 @@ class ProfileController extends Controller
 
     public function showMyAccount()
     {
-        return view('admin.my-account');
+        $user = auth()->user();
+
+        return view('admin.my-account' ,compact('user'));
     }
 
     public function updateMyAccount(Request $request){
 
         try{
-            $data = $request->except('_token');
-            $data['payee_user_id'] = $data['user_id']= auth()->id();
 
-            $transaction = BankTransaction::create($data);
+            $data = $request->except('_token' ,'profile_pic');
+            $user = User::find($request->id);
 
-            session()->flash('app_message', 'You sent funds successfully!.');
+            if ($file = $request->file('profile_pic')) {
 
-            return redirect()->back();
+                $fileName = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension() ? : 'png';
+                $folderName = '/uploads/user_images/';
+                $destinationPath = public_path() . $folderName;
+                $safeName = str_random(10) . '.' . $extension;
+                $file->move($destinationPath, $safeName);
+                $data['profile_pic'] = $safeName;
+            }
+
+            $is_updated = ($user->update($data));
+
+            if($is_updated)
+                session()->flash('app_message', 'Account info has been successfully updated');
+            else
+                session()->flash('app_error', 'Account info has not been successfully updated');
+
+            return back();
+
 
         } catch (\Exception $ex) {
             session()->flash('app_error', $ex->getMessage());

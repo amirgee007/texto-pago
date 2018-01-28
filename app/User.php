@@ -25,6 +25,8 @@ class User extends Authenticatable
         'company_name',
         'tax_id',
         'pin',
+        'profile_pic',
+        'is_admin',
     ];
 
     /**

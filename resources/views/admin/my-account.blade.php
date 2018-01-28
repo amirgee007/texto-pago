@@ -37,38 +37,40 @@
                                             <div class="element-box">
                                                 <form action="{{ route('post.my-account.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
                                                     {{ csrf_field() }}
-                                                <div class="form-group row">
+                                                    <input value="{{$user->id}}" name="id"  type="hidden">
+
+                                                    <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> Profile Photo</label>
                                                         <div class="col-sm-8">
-                                                            <input id="input-file-now" type="file" accept="image/x-png,image/gif,image/jpeg" @if(@$user->profile_pic) data-default-file="{{asset('uploads/users/'.@$user->profile_pic)}}" @endif name="profile_pic" class="dropify"/>
+                                                            <input id="input-file-now" type="file" accept="image/x-png,image/gif,image/jpeg" @if(@$user->profile_pic) data-default-file="{{asset('uploads/user_images/'.@$user->profile_pic)}}" @endif name="profile_pic" class="dropify"/>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> First Name</label>
                                                         <div class="col-sm-8">
-                                                            <input required name="first_name" class="form-control" placeholder="Name" type="text">
+                                                            <input required name="first_name" value="{{$user->first_name}}" class="form-control" placeholder="Name" type="text">
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for="">Last Name</label>
                                                         <div class="col-sm-8">
-                                                            <input required class="form-control" name="last_name" placeholder="Last Name" type="text">
+                                                            <input required class="form-control" value="{{$user->last_name}}" name="last_name" placeholder="Last Name" type="text">
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for="">ID</label>
                                                         <div class="col-sm-8">
-                                                            <input required class="form-control" name="user_id" placeholder="ID" type="number">
+                                                            <input required class="form-control" value="{{$user->user_id}}" name="user_id" placeholder="ID" type="number">
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for="">User</label>
                                                         <div class="col-sm-8">
-                                                            <input required class="form-control" name="user_name" placeholder="User Name" type="text">
+                                                            <input required class="form-control" value="{{$user->user_name}}" name="user_name" placeholder="User Name" type="text">
                                                         </div>
                                                     </div>
 

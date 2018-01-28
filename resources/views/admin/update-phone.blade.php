@@ -38,10 +38,11 @@
                                             <div class="element-box">
                                                 <form action="{{ route('post.phone.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
                                                     {{ csrf_field() }}
+                                                    {{--<input value="{{$user->id}}" name="id"  type="hidden">--}}
                                                 <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> Phone</label>
                                                         <div class="col-sm-8">
-                                                            <input required name="phone" class="form-control" placeholder="Enter Phone" type="number">
+                                                            <input required name="phone" value="{{$user->phone}}" class="form-control" placeholder="Enter Phone" type="number">
                                                         </div>
                                                     </div>
 

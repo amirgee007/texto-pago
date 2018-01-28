@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Bank;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -37,4 +38,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function bank() {
+        return $this->hasOne( Bank::class , 'user_id' , 'id');
+    }
+
+
+
 }

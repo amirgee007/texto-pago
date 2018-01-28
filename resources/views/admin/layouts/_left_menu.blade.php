@@ -29,66 +29,65 @@
         <!--------------------
            START - Mobile Menu List
            -------------------->
-        <ul class="main-menu">
+        {{--<ul class="main-menu">--}}
+            {{--<li class="has-sub-menu" >--}}
+                {{--<a href="{{route('index.dashboard')}}">--}}
+                    {{--<div class="icon-w">--}}
+                        {{--<div class="os-icon os-icon-window-content"></div>--}}
+                    {{--</div>--}}
+                    {{--<span>Send</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="has-sub-menu">--}}
+                {{--<a href="#">--}}
+                    {{--<div class="icon-w">--}}
+                        {{--<div class="os-icon os-icon-hierarchy-structure-2"></div>--}}
+                    {{--</div>--}}
+                    {{--<span>Withdraw</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="has-sub-menu">--}}
+                {{--<a href="#">--}}
+                    {{--<div class="icon-w">--}}
+                        {{--<div class="os-icon os-icon-delivery-box-2"></div>--}}
+                    {{--</div>--}}
+                    {{--<span>Historical</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="has-sub-menu">--}}
+                {{--<a href="#">--}}
+                    {{--<div class="icon-w">--}}
+                        {{--<div class="os-icon os-icon-user-male-circle"></div>--}}
+                    {{--</div>--}}
+                    {{--<span>My account</span>--}}
+                {{--</a>--}}
 
-            <li class="has-sub-menu" >
-                <a href="{{route('index.dashboard')}}">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-window-content"></div>
-                    </div>
-                    <span>Send</span>
-                </a>
-            </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-hierarchy-structure-2"></div>
-                    </div>
-                    <span>Withdraw</span>
-                </a>
-            </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-delivery-box-2"></div>
-                    </div>
-                    <span>Historical</span>
-                </a>
-            </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-user-male-circle"></div>
-                    </div>
-                    <span>My account</span>
-                </a>
-
-            </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-newspaper"></div>
-                    </div>
-                    <span>Banks</span>
-                </a>
-            </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-pencil-12"></div>
-                    </div>
-                    <span>Change Phone</span>
-                </a>
-            </li>
-            <li class="has-sub-menu">
-                <a href="#">
-                    <div class="icon-w">
-                        <div class="os-icon os-icon-tasks-checked"></div>
-                    </div>
-                    <span>Help</span>
-                </a>
-            </li>
-        </ul>
+            {{--</li>--}}
+            {{--<li class="has-sub-menu">--}}
+                {{--<a href="#">--}}
+                    {{--<div class="icon-w">--}}
+                        {{--<div class="os-icon os-icon-newspaper"></div>--}}
+                    {{--</div>--}}
+                    {{--<span>Banks</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="has-sub-menu">--}}
+                {{--<a href="#">--}}
+                    {{--<div class="icon-w">--}}
+                        {{--<div class="os-icon os-icon-pencil-12"></div>--}}
+                    {{--</div>--}}
+                    {{--<span>Change Phone</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="has-sub-menu">--}}
+                {{--<a href="#">--}}
+                    {{--<div class="icon-w">--}}
+                        {{--<div class="os-icon os-icon-tasks-checked"></div>--}}
+                    {{--</div>--}}
+                    {{--<span>Help</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+        {{--</ul>--}}
 
         <!--------------------
          END - Mobile Menu List
@@ -199,7 +198,7 @@
                     <span>Banks</span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="{{route('get.banks')}}">Banks</a> </li>
+                    <li><a href="{{route('get.bank')}}">Banks</a> </li>
                 </ul>
             </li>
 

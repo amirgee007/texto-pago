@@ -41,14 +41,14 @@
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> Bank</label>
                                                         <div class="col-sm-8">
-                                                            <input required name="name" class="form-control" placeholder="Bank" type="text">
+                                                            <input required name="name" value="{{@$bank->name}}" class="form-control" placeholder="Bank" type="text">
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> Account #</label>
                                                         <div class="col-sm-8">
-                                                            <input required name="account_number" class="form-control" placeholder="Account #" type="number">
+                                                            <input required name="account_number" value="{{@$bank->account_number}}" class="form-control" placeholder="Account #" type="number">
                                                         </div>
                                                     </div>
 
@@ -59,35 +59,30 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if(!is_null($bank))
                                     <div class="table-responsive">
                                         <table class="table table-lightborder">
                                             <thead>
                                             <tr>
-                                                <th>Id</th>
                                                 <th>Bank Id</th>
                                                 <th>Name</th>
                                                 <th>Account Number</th>
                                                 <th>Avail Funds</th>
-                                                <th>Date</th>
+                                                <th>Create Date</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-
-                                            @foreach($banks as $bank)
-
                                                 <tr>
-                                                    <td>{{$loop->iteration}}</td>
                                                     <td>{{$bank->bank_id}}</td>
                                                     <td>{{$bank->name}}</td>
                                                     <td>{{$bank->account_number}}</td>
-                                                    <td>{{$bank->avail_funds}}</td>
+                                                    <td>Bs {{$bank->avail_funds}}</td>
                                                     <td>{{\Carbon\Carbon::parse($bank->created_at)->format('d F Y')}}</td>
-
                                                 </tr>
-                                            @endforeach
                                             </tbody>
                                         </table>
                                     </div>
+                                    @endif
 
                                 </div>
                             </div>

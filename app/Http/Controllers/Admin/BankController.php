@@ -15,22 +15,22 @@ class BankController extends Controller
         $this->middleware('auth');
     }
 
-    public function showbanks()
+    public function showBank()
     {
-
-        $banks = Bank::where('user_id' ,auth()->id())->get();
-        return view('admin.banks' ,compact('banks'));
+        $bank = auth()->user()->bank;
+        return view('admin.banks' ,compact('bank'));
     }
 
     public function bankStore(Request $request)
     {
         try{
-            $data = $request->except('_token');
-            $data['user_id']= auth()->id();
 
-            $bank = Bank::create($data);
+            $bank = Bank::query()->firstOrNew(['user_id'=>auth()->id()]);
+            $bank->name = $request->name;
+            $bank->account_number = $request->account_number;
+            $bank->save();
 
-            session()->flash('app_message', 'You bank added successfully!.');
+            session()->flash('app_message', 'You bank account added successfully.');
 
             return redirect()->back();
 

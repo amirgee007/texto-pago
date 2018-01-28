@@ -17,9 +17,13 @@ class CreateBanksTable extends Migration
             $table->increments('bank_id');
             $table->string('name');
             $table->bigInteger('account_number');
-            $table->float('avail_funds')->nullable();
+            $table->float('avail_funds')->default(0);
             $table->integer('user_id')->unsigned(); //relation
             $table->timestamps();
+        });
+
+        Schema::table('banks', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -30,6 +34,9 @@ class CreateBanksTable extends Migration
      */
     public function down()
     {
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->dropForeign('user_id');
+        });
         Schema::dropIfExists('banks');
     }
 }

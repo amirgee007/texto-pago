@@ -53,9 +53,9 @@ Route::group(['namespace' =>'Admin' ,'middleware' => ['auth']] , function(){
         'as' => 'get.my.account',
         'uses' => 'ProfileController@showMyAccount'));
 
-    Route::get('/banks', array(
-        'as' => 'get.banks',
-        'uses' => 'BankController@showbanks'));
+    Route::get('/bank', array(
+        'as' => 'get.bank',
+        'uses' => 'BankController@showBank'));
 
     Route::get('/update-phone', array(
         'as' => 'get.update.phone',

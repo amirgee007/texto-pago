@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <!-- Mirrored from light.pinsupreme.com/auth_login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 20 Jan 2018 15:53:08 GMT -->
-<head><title>Admin Dashboard HTML Template</title>
+<head><title>Texto-Pago | Login</title>
     <meta charset="utf-8">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="template language" name="keywords">

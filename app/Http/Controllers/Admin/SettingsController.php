@@ -22,6 +22,17 @@ class SettingsController extends Controller
         return view('admin.update-pin');
     }
 
+    public function updatePinStore(Request $request){
+
+        dd($request->all());
+    }
+
+    public function updatePhoneStore(Request $request){
+
+        dd($request->all());
+
+    }
+    
     public function showHelp()
     {
         return view('admin.help');

@@ -57,11 +57,11 @@ Route::group(['namespace' =>'Admin' ,'middleware' => ['auth']] , function(){
         'as' => 'get.banks',
         'uses' => 'BankController@showbanks'));
 
-    Route::get('/change-phone', array(
+    Route::get('/update-phone', array(
         'as' => 'get.update.phone',
         'uses' => 'SettingsController@updatePhone'));
 
-    Route::get('/change-pin', array(
+    Route::get('/update-pin', array(
         'as' => 'get.update.pin',
         'uses' => 'SettingsController@updatePin'));
 
@@ -78,6 +78,23 @@ Route::group(['namespace' =>'Admin' ,'middleware' => ['auth']] , function(){
     Route::post('/withdraw-store', array(
         'as' => 'post.withdraw.store',
         'uses' => 'TransactionController@withdrawStore'));
+
+    Route::post('/my-account/store', array(
+        'as' => 'post.my-account.store',
+        'uses' => 'ProfileController@updateMyAccount'));
+
+    Route::post('/bank-store', array(
+        'as' => 'post.bank.store',
+        'uses' => 'BankController@withdrabankStore'));
+
+    Route::post('/update-phone/store', array(
+        'as' => 'post.phone.store',
+        'uses' => 'SettingsController@updatePhoneStore'));
+
+    Route::post('/update-pin/store', array(
+        'as' => 'post.pin.store',
+        'uses' => 'SettingsController@updatePinStore'));
+
 
 
 });

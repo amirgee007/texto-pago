@@ -51,6 +51,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-sm-4" for=""> To</label>
                                                         <div class="col-sm-8">
+                                                            <select required name="recipient_user_id" id="send_for" class="form-control" size="1">
                                                                 <option value="">Select User to send</option>
                                                                 @foreach($users as $user)
                                                                 <option value="{{$user->id}}">{{$user->first_name}}</option>
